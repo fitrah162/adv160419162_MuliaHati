@@ -44,7 +44,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/txtNamaPenggalang"
+                android:id="@+id/txtNamaPenggalangDonasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -59,8 +59,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Terkumpul"
-                app:layout_constraintStart_toStartOf="@+id/txtNamaPenggalang"
-                app:layout_constraintTop_toBottomOf="@+id/txtNamaPenggalang" />
+                app:layout_constraintStart_toStartOf="@+id/txtNamaPenggalangDonasi"
+                app:layout_constraintTop_toBottomOf="@+id/txtNamaPenggalangDonasi" />
 
             <TextView
                 android:id="@+id/txtDonasiTerkumpul"
@@ -68,6 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="0"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView9"
                 app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -76,16 +77,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="116dp"
-                android:text="Sisa Hari"
+                android:text="Sisa hari"
                 app:layout_constraintBottom_toBottomOf="@+id/textView9"
                 app:layout_constraintStart_toEndOf="@+id/textView9" />
 
             <TextView
-                android:id="@+id/txtSisaHari"
+                android:id="@+id/txtSisaHariDonasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="10"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView11"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
         </androidx.constraintlayout.widget.ConstraintLayout>
