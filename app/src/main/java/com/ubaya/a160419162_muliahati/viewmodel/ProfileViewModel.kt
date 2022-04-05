@@ -18,7 +18,7 @@ class ProfileViewModel(application: Application):AndroidViewModel(application) {
     val profileLD = MutableLiveData<Profile>()
     fun fetch(){
         queue = Volley.newRequestQueue(getApplication())
-        val url = "https://gist.githubusercontent.com/fitrah162/0f895b2a4704a476c40254ae994c100b/raw/3dfd7211c36acd3dd7d2a82b92f8e06ae4fcf840/profile.json"
+        val url = "https://gist.githubusercontent.com/fitrah162/0f895b2a4704a476c40254ae994c100b/raw/73241f285b2c5b80f926d02d145122269e71e400/profile.json"
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             {
