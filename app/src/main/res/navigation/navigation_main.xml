@@ -87,6 +87,9 @@
         <action
             android:id="@+id/action_zakatDetailFragment_to_penggalangDetailFragment"
             app:destination="@id/penggalangDetailFragment" />
+        <argument
+            android:name="zakatID"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/detailProfileFragment"

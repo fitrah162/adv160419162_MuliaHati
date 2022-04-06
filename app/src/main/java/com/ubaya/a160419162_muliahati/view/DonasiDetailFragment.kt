@@ -5,19 +5,63 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.ubaya.a160419162_muliahati.R
+import com.ubaya.a160419162_muliahati.util.loadImage
+import com.ubaya.a160419162_muliahati.util.loadImageDonasi
+import com.ubaya.a160419162_muliahati.viewmodel.DonasiDetailViewModel
+import com.ubaya.a160419162_muliahati.viewmodel.ProfileViewModel
+import kotlinx.android.synthetic.main.donasi_list_item.*
+import kotlinx.android.synthetic.main.fragment_detail_profile.*
+import kotlinx.android.synthetic.main.fragment_donasi_detail.*
 
 
 class DonasiDetailFragment : Fragment() {
 
-
-
+    private lateinit var viewModel: DonasiDetailViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_donasi_detail, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        var donasiID = ""
+        arguments?.let {
+            donasiID = DonasiDetailFragmentArgs.fromBundle(requireArguments()).donasiID
+        }
+        viewModel = ViewModelProvider(this).get(DonasiDetailViewModel::class.java)
+        viewModel.fetch(donasiID)
+        observeViewModel()
+    }
+
+    private fun observeViewModel() {
+        viewModel.donasiLD.observe(viewLifecycleOwner) {
+            val donasiDetail = viewModel.donasiLD.value
+            donasiDetail?.let {
+                imgDonasiDetail.loadImage(it.foto_donasi)
+                txtJudulDonasiDetail.text = it.judulDonasi
+                txtTerkumpulDonasiDetail.text = "Rp. ${it.terkumpul}"
+                if(it.target != 0){
+                    txtTargetDonasiDetail.text = "terkumpul dari Rp. ${it.target}"
+                }
+                if(it.penggalang.foto_penggalang != "-"){
+                    imgPenggalangDonasiDetail.loadImage(it.penggalang.foto_penggalang)
+
+                }
+                progressDonasiDetail.max = it.target!!
+                progressDonasiDetail.progress = it.terkumpul.toInt()
+                txtDurasiDonasiDetail.text = it.durasi.toString()
+                txtPenggalangDonasiDetail.text = it.penggalang.nama
+                txtCeritaDonasiDetail.text = it.cerita
+            }
+        }
+    }
+    fun Int.divideToPercent(divideTo: Int): Int {
+        return if (divideTo == 0) 0
+        else (this / divideTo.toFloat()).toInt()
     }
 
 
