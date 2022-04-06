@@ -24,7 +24,7 @@ class DonasiViewModel(application: Application) :AndroidViewModel(application) {
         donasiLoadErrorLD.value = false
         loadingLD.value = true
         queue = Volley.newRequestQueue(getApplication())
-        val url = "https://gist.githubusercontent.com/fitrah162/e356993740eb5932cb9b6f38b055f556/raw/7203f2ac7c0bcaa671a26f4392b4c3dd950b1481/donasi.json"
+        val url = "https://gist.githubusercontent.com/fitrah162/e356993740eb5932cb9b6f38b055f556/raw/2fe51166ff1bed9a6fa7a3e35b232b74fff9898a/donasi.json"
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             {

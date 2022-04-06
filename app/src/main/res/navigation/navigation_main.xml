@@ -124,5 +124,14 @@
         <action
             android:id="@+id/action_penggalangDetailFragment_to_zakatDetailFragment"
             app:destination="@id/zakatDetailFragment" />
+        <argument
+            android:name="penggalangName"
+            app:argType="string" />
+        <argument
+            android:name="penggalangTentang"
+            app:argType="string" />
+        <argument
+            android:name="penggalangFoto"
+            app:argType="string" />
     </fragment>
 </navigation>

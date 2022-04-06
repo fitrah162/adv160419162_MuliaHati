@@ -10,6 +10,7 @@ import com.ubaya.a160419162_muliahati.model.Donasi
 import com.ubaya.a160419162_muliahati.model.Zakat
 import com.ubaya.a160419162_muliahati.util.loadImageDonasi
 import kotlinx.android.synthetic.main.donasi_list_item.view.*
+import kotlinx.android.synthetic.main.fragment_zakat_detail.*
 
 class ZakatListAdapter(val zakatList: ArrayList<Zakat>): RecyclerView.Adapter<ZakatListAdapter.ZakatViewHolder>() {
     class ZakatViewHolder(var view: View): RecyclerView.ViewHolder(view)
@@ -26,10 +27,16 @@ class ZakatListAdapter(val zakatList: ArrayList<Zakat>): RecyclerView.Adapter<Za
             txtJudulDonasi.text = donasi.judulDonasi
             txtNamaPenggalangDonasi.text = donasi.penggalang.nama
             txtDonasiTerkumpul.text = "Rp. ${donasi.terkumpul.toString()}"
-            txtSisaHariDonasi.text = "${donasi.durasi.toString()}"
             cardDonasiList.setOnClickListener {
-                val action = DonasiListFragmentDirections.actionDonasiListFragmentToDonasiDetailFragment2(donasi.id.toString())
+                val action = ZakatListFragmentDirections.actionZakatListFragmentToZakatDetailFragment(donasi.id.toString())
                 Navigation.findNavController(it).navigate(action)
+            }
+            if(donasi.durasi !=0){
+                txtSisaHariDonasi.text = donasi.durasi.toString()
+            }
+            else{
+                txtSisaHariDonasi.text = Character.toString('\u221e')
+
             }
             imgDonasiList.loadImageDonasi(donasi.foto_donasi,progressFotoDonasi)
         }

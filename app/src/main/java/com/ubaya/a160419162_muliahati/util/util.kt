@@ -22,7 +22,20 @@ fun ImageView.loadImage(url: String?){
         })
 
 }
+fun ImageView.loadImage(url: String?,width:Int,height:Int){
+    Picasso.get()
+        .load(url)
+        .resize(width,height)
+        .centerCrop()
+        .error(R.drawable.ic_baseline_error_24)
+        .into(this, object : Callback{
+            override fun onSuccess() {
+            }
+            override fun onError(e: Exception?) {
+            }
+        })
 
+}
 fun ImageView.loadImageDonasi(url: String?, progressBar: ProgressBar){
     Picasso.get()
         .load(url)

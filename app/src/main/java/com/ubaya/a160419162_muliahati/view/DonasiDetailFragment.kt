@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.ubaya.a160419162_muliahati.R
 import com.ubaya.a160419162_muliahati.util.loadImage
 import com.ubaya.a160419162_muliahati.util.loadImageDonasi
@@ -38,10 +39,11 @@ class DonasiDetailFragment : Fragment() {
     }
 
     private fun observeViewModel() {
+
         viewModel.donasiLD.observe(viewLifecycleOwner) {
             val donasiDetail = viewModel.donasiLD.value
             donasiDetail?.let {
-                imgDonasiDetail.loadImage(it.foto_donasi)
+                imgDonasiDetail.loadImage(it.foto_donasi, 1000, 400)
                 txtJudulDonasiDetail.text = it.judulDonasi
                 txtTerkumpulDonasiDetail.text = "Rp. ${it.terkumpul}"
                 if(it.target != 0){
@@ -56,13 +58,17 @@ class DonasiDetailFragment : Fragment() {
                 txtDurasiDonasiDetail.text = it.durasi.toString()
                 txtPenggalangDonasiDetail.text = it.penggalang.nama
                 txtCeritaDonasiDetail.text = it.cerita
+                var penggalangNama = it.penggalang.nama.toString()
+                var penggalangTentang = it.penggalang.tentang.toString()
+                var penggalangFoto = it.penggalang.foto_penggalang.toString()
+                cardPenggalangDonasiDetail.setOnClickListener {
+                    val action = DonasiDetailFragmentDirections.actionDonasiDetailFragment2ToPenggalangDetailFragment(penggalangNama,penggalangTentang,penggalangFoto)
+                    Navigation.findNavController(it).navigate(action)
+                }
             }
         }
     }
-    fun Int.divideToPercent(divideTo: Int): Int {
-        return if (divideTo == 0) 0
-        else (this / divideTo.toFloat()).toInt()
-    }
+
 
 
 }
