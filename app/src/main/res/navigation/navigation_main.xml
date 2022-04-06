@@ -43,13 +43,13 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_donasiListFragment_to_donasiDetailFragment2"
-            app:destination="@id/donasiDetailFragment2" />
+            app:destination="@id/donasiDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemProfile"
         android:name="com.ubaya.a160419162_muliahati.view.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_itemProfile_to_detailProfileFragment"
             app:destination="@id/detailProfileFragment" />
@@ -58,7 +58,7 @@
             app:destination="@id/detailDonasikuFragment2" />
     </fragment>
     <fragment
-        android:id="@+id/donasiDetailFragment2"
+        android:id="@+id/donasiDetailFragment"
         android:name="com.ubaya.a160419162_muliahati.view.DonasiDetailFragment"
         android:label="fragment_donasi_detail"
         tools:layout="@layout/fragment_donasi_detail" >
@@ -70,6 +70,9 @@
         <action
             android:id="@+id/action_donasiDetailFragment2_to_penggalangDetailFragment"
             app:destination="@id/penggalangDetailFragment" />
+        <argument
+            android:name="donasiID"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/zakatDetailFragment"
@@ -114,7 +117,7 @@
         tools:layout="@layout/fragment_penggalang_detail" >
         <action
             android:id="@+id/action_penggalangDetailFragment_to_donasiDetailFragment2"
-            app:destination="@id/donasiDetailFragment2" />
+            app:destination="@id/donasiDetailFragment" />
         <action
             android:id="@+id/action_penggalangDetailFragment_to_zakatDetailFragment"
             app:destination="@id/zakatDetailFragment" />

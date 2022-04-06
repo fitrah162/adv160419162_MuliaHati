@@ -32,6 +32,10 @@ class ProfileFragment : Fragment() {
             val action = ProfileFragmentDirections.actionItemProfileToDetailProfileFragment()
             Navigation.findNavController(it).navigate(action)
         }
+        btnDonasimu.setOnClickListener {
+            val action = ProfileFragmentDirections.actionItemProfileToDetailDonasikuFragment2()
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 
     private fun observeViewModel() {
