@@ -20,7 +20,7 @@ class DonasiDetailViewModel(application: Application) :AndroidViewModel(applicat
     fun fetch(donasiID: String){
 
         queue = Volley.newRequestQueue(getApplication())
-        val url = "https://gist.githubusercontent.com/fitrah162/e356993740eb5932cb9b6f38b055f556/raw/2fe51166ff1bed9a6fa7a3e35b232b74fff9898a/donasi.json"
+        val url = "https://gist.githubusercontent.com/fitrah162/e356993740eb5932cb9b6f38b055f556/raw/f0071fa34f618e4f3ed59e72ac8e88752dad28e9/donasi.json"
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             {
