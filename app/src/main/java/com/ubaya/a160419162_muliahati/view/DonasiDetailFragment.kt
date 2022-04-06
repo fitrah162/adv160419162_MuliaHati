@@ -58,6 +58,7 @@ class DonasiDetailFragment : Fragment() {
                 txtDurasiDonasiDetail.text = it.durasi.toString()
                 txtPenggalangDonasiDetail.text = it.penggalang.nama
                 txtCeritaDonasiDetail.text = it.cerita
+                txtDonaturDonasiDetail.text = it.donatur.toString()
                 var penggalangNama = it.penggalang.nama.toString()
                 var penggalangTentang = it.penggalang.tentang.toString()
                 var penggalangFoto = it.penggalang.foto_penggalang.toString()
